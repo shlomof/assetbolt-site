@@ -9,9 +9,8 @@ const newsletterSchema = z.object({
 });
 
 const ALLOWED_ORIGINS = [
-  // TODO: Add your production domain(s)
-  // 'https://yourdomain.com',
-  // 'https://www.yourdomain.com',
+  'https://assetbolt.com',
+  'https://www.assetbolt.com',
 ];
 
 const MAX_REQUESTS_PER_MINUTE = 5;

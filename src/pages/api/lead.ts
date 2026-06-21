@@ -52,9 +52,8 @@ function getClientIp(request: Request): string {
 }
 
 const ALLOWED_ORIGINS = [
-  // TODO: Add your production domain(s)
-  // 'https://yourdomain.com',
-  // 'https://www.yourdomain.com',
+  'https://assetbolt.com',
+  'https://www.assetbolt.com',
 ];
 
 function getCorsOrigin(request: Request): string {
