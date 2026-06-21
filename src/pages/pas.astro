@@ -1,8 +1,9 @@
 ---
 /**
- * PAS (Problem > Agitate > Solution) Long-form Sales Page
- * Layout reference: Programs Page@2x.pdf
- * Uses the component system + Tailwind utilities
+ * AssetBolt — PAS Sales Page
+ * Problem: LinkedIn owns your subscribers
+ * Agitate: launch timing + algorithm risk
+ * Solution: done-for-you migration + subscriber intelligence
  */
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Header from '@/components/layout/Header.astro';
@@ -13,138 +14,141 @@ import Button from '@/components/ui/form/Button/Button.astro';
 import Badge from '@/components/ui/data-display/Badge/Badge.astro';
 import Card from '@/components/ui/data-display/Card/Card.astro';
 import Accordion from '@/components/ui/overlay/Accordion/Accordion.astro';
-import StatCard from '@/components/patterns/StatCard.astro';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
 import LeadCaptureForm from '@/components/forms/LeadCaptureForm.tsx';
 import MobileFormSheet from '@/components/forms/MobileFormSheet.tsx';
-import siteConfig from '@/config/site.config';
 
-const formTags = ['funnel_blueprint', 'pas_page'];
-const termsHtml = `<p>By providing my information, I agree to receive communications and accept the <a href="/terms">Privacy Policy</a>. Unsubscribe anytime.</p>`;
+const formTags = ['assetbolt_strategy_call', 'pas_page'];
+const termsHtml = `<p>By providing your details, you agree to receive communications. <a href="/terms">Privacy Policy</a>. Unsubscribe anytime.</p>`;
+
+const painPoints = [
+  { title: 'Algorithm changes kill your reach', icon: 'trending-down' },
+  { title: 'You can\'t email your own subscribers', icon: 'mail' },
+  { title: 'Launch day arrives with no list to send to', icon: 'calendar' },
+  { title: '300+ connection requests, no system to handle them', icon: 'users' },
+  { title: 'Qualifying leads manually, one by one', icon: 'search' },
+  { title: 'Top prospects slip through while you\'re busy', icon: 'alert-circle' },
+];
 
 const faqItems = [
-  { title: 'How quickly will I see results?', content: 'Most clients see measurable improvements within 30 days. By day 90, you\'ll have a fully operational sales engine generating leads and revenue on autopilot.' },
-  { title: 'What if I already have a website?', content: 'No problem. We audit your current setup and either optimise what you have or build fresh — whichever drives more revenue faster. Either way, you keep full ownership.' },
-  { title: 'Is there a money-back guarantee?', content: 'Absolutely. If you\'re not completely satisfied within 30 days, we\'ll refund every cent. No hoops, no questions, no fine print.' },
-  { title: 'Do I need technical skills?', content: 'Zero. We handle the tech — CRM, automations, funnels, integrations. You focus on closing deals and serving clients.' },
+  {
+    title: 'How many LinkedIn subscribers do I need for this to be worth it?',
+    content: 'The migration works best from around 1,000 LinkedIn newsletter subscribers. Below that, the DM volume doesn\'t justify the setup. If you\'re not there yet, get in touch anyway — we can map out what to build toward.',
+  },
+  {
+    title: 'What tools do I need on my end?',
+    content: 'A Dripify account (~$39–59/month, which you pay directly to them) and a Kit account (free up to 1,000 subscribers). That\'s it. The scraping, campaign setup, and Kit configuration are all handled for you.',
+  },
+  {
+    title: 'Do I have to do anything once it\'s set up?',
+    content: 'One thing only: when a LinkedIn subscriber replies "yes" to the automated DM, you send them your opt-in link. That reply has to come from your LinkedIn account — it can\'t be automated. It takes about 5 minutes a day and is the only step that requires you.',
+  },
+  {
+    title: 'How quickly will I see results?',
+    content: 'Dripify sends up to 50 DMs per day (LinkedIn\'s safe limit). Most clients see their first opt-ins within the first week. At typical reply rates, expect 100+ owned email subscribers within the first month.',
+  },
+  {
+    title: 'What\'s the difference between the Migration and the Full System?',
+    content: 'The migration gets your LinkedIn subscribers into an email list you own. The Full AssetBolt System adds intelligence on top — a qualification sequence that tags subscribers by company size, a RightMessage layer that shows the right CTA to the right person, and Gmail draft automation that writes pre-drafted replies to qualified leads before you wake up.',
+  },
 ];
 ---
 
 <BaseLayout
-  title="Growth Mode — Build Your Sales Engine in 90 Days"
-  description="Go into Growth Mode with an expert-led program, tutorials, templates and tech. Everything you need to scale revenue."
+  title="AssetBolt — Turn Your LinkedIn Audience Into an Email List You Own"
+  description="Done-for-you LinkedIn newsletter migration and subscriber intelligence system. Built for creators, coaches, and executives with a book launch coming."
 >
   {/* ── Nav ── */}
   <Header slot="header" layout="minimal" position="fixed" variant="solid" size="lg" />
 
   {/* ═══════════════════════════════════════════════════
-      HERO — Dark background, split layout
+      HERO — Dark, statement headline
   ═══════════════════════════════════════════════════ */}
-  <Hero layout="split" size="lg" class="invert-section">
-    <Badge slot="badge" variant="brand" pill>For Business Owners Ready to Scale</Badge>
-    <h1 slot="title">Ready to build your<br />growth engine?</h1>
-    <p slot="description">
-      Go into <strong class="text-foreground font-semibold">Growth Mode</strong> with an expert-led program, tutorials,
-      templates and tech. Everything you need to scale revenue.
+  <Hero layout="centered" size="lg" class="invert-section bg-grid-pattern">
+    <Badge slot="badge" variant="brand" pill>For LinkedIn Creators With an Audience</Badge>
+    <h1 slot="title" class="max-w-3xl mx-auto">
+      You have thousands of LinkedIn followers.<br />You own none of them.
+    </h1>
+    <p slot="description" class="max-w-xl mx-auto">
+      When LinkedIn changes the algorithm — or when your book launch happens — you're starting from zero.
+      I move your audience into an email list you control, with a qualification system that tells you
+      which subscribers are worth your time.
     </p>
     <Fragment slot="actions">
       <Button size="lg" href="#get-started" class="!h-14 !px-8 !text-base">
-        Get Your Free Growth Plan
+        Book a Strategy Call
         <Icon name="arrow-right" size="sm" class="ml-2" />
       </Button>
     </Fragment>
 
-    {/* Checklist below the CTA */}
-    <ul class="mt-8 flex flex-col gap-2.5">
-      {['10x your clarity on growth', '10x leads & conversion', '10x sales pipeline'].map((item) => (
+    <ul class="mt-8 flex flex-col sm:flex-row gap-4 sm:gap-8 justify-center">
+      {[
+        'LinkedIn newsletter → your Kit list',
+        'Qualification system that surfaces ready buyers',
+        'Pre-drafted replies waiting in Gmail each morning',
+      ].map((item) => (
         <li class="flex items-center gap-2 text-sm text-foreground-muted">
           <Icon name="check" size="sm" class="text-brand-500 shrink-0" />
           {item}
         </li>
       ))}
     </ul>
-    <p class="mt-6 text-xs text-foreground-subtle">What 100s of businesses are using to scale growth</p>
-
-    {/* Aside — product visual */}
-    <div slot="aside" class="hidden lg:flex items-center justify-center max-w-[360px] mx-auto">
-      <img src="/images/product-mockup.webp" alt="Product mockup" class="w-full h-auto rounded-xl" loading="eager" />
-    </div>
   </Hero>
 
   {/* ═══════════════════════════════════════════════════
-      TRUST BAR
-  ═══════════════════════════════════════════════════ */}
-  <section class="py-10 border-b border-border">
-    <div class="mx-auto max-w-6xl px-6">
-      <p class="text-center text-xs font-semibold uppercase tracking-widest text-foreground-muted mb-5">Trusted By</p>
-      <div class="flex justify-center items-center gap-12 flex-wrap">
-        {['Acme Corp', 'BrandCo', 'ScaleUp', 'GrowthHQ'].map((name) => (
-          <span class="text-lg font-bold text-foreground-subtle">{name}</span>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  {/* ═══════════════════════════════════════════════════
-      PROBLEM — Two-column
+      PROBLEM — two column, text-driven
   ═══════════════════════════════════════════════════ */}
   <section class="py-[var(--space-section-lg)] bg-secondary">
     <div class="mx-auto max-w-6xl px-6">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-        <div class="aspect-video w-full rounded-xl overflow-hidden">
-          <iframe
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-            title="Video"
-            class="w-full h-full"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-        </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
         <div>
-          <h2 class="font-display text-2xl md:text-4xl font-bold tracking-tight text-foreground">
-            Imagine going from current state to $10M+ per year FAST.
+          <p class="text-sm font-semibold text-brand-600 uppercase tracking-wider mb-3">The Problem</p>
+          <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight text-foreground">
+            LinkedIn shows you their names. It never gives you their emails.
           </h2>
-          <p class="mt-4 text-lg font-semibold text-foreground">What's stopping you?</p>
-          <p class="mt-3 text-base leading-relaxed text-foreground-muted">
-            You can unlock huge growth online. But without the tactics,
-            systems and process, it's hard to know where to start — or how to
-            drive real revenue.
+          <p class="mt-5 text-base leading-relaxed text-foreground-muted">
+            You've spent years building a following. Every post, every comment, every connection request
+            — all of it happened inside LinkedIn's walls. And LinkedIn owns the relationship, not you.
           </p>
-          <p class="mt-3 text-base leading-relaxed text-foreground-muted">
-            Lots of ordinary people who run businesses like yours figure out
-            how to make serious money. But how?!
+          <p class="mt-4 text-base leading-relaxed text-foreground-muted">
+            Your newsletter subscribers? LinkedIn knows who they are. They won't tell you.
+            You can see a name. You can't send an email. You can't export a list.
+            The moment their algorithm shifts, your reach shifts with it.
           </p>
+        </div>
+        <div class="flex flex-col gap-4">
+          <Card variant="outline" padding="lg">
+            <p class="text-xs font-bold uppercase tracking-wide text-foreground-muted mb-1">LinkedIn Newsletter</p>
+            <p class="text-4xl font-extrabold text-foreground">2,500</p>
+            <p class="mt-1 text-sm text-foreground-muted">subscribers. Zero emails. Zero ownership.</p>
+          </Card>
+          <Card variant="default" padding="lg">
+            <p class="text-xs font-bold uppercase tracking-wide text-brand-600 mb-1">After AssetBolt</p>
+            <p class="text-4xl font-extrabold text-foreground">Yours.</p>
+            <p class="mt-1 text-sm text-foreground-muted">Owned email list. Tagged by company size. Ready for launch day.</p>
+          </Card>
         </div>
       </div>
     </div>
   </section>
 
   {/* ═══════════════════════════════════════════════════
-      AGITATE — "It's hard to know what works!"
+      AGITATE — What it costs you
   ═══════════════════════════════════════════════════ */}
   <section class="py-[var(--space-section-lg)]">
     <div class="mx-auto max-w-6xl px-6">
       <div class="text-center mb-[var(--space-section-header)]">
-        <p class="text-sm font-semibold text-brand-600 uppercase tracking-wider mb-3">The Problem</p>
-        <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight text-foreground">It's hard to know what works!</h2>
+        <p class="text-sm font-semibold text-brand-600 uppercase tracking-wider mb-3">What It Costs You</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight text-foreground">
+          This isn't a future problem. It's already happening.
+        </h2>
         <p class="mt-4 text-base leading-relaxed text-foreground-muted max-w-2xl mx-auto">
-          Figuring out how to really grow your business takes time, money, and the right
-          people — and it's hard to make it happen, especially as fast as you want it to.
+          Every day you're on LinkedIn without an owned list, you're one algorithm update away from
+          starting over. And if you have a book launch coming, the clock is already running.
         </p>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
-        {[
-          { title: 'A Trusted Brand', icon: 'globe' },
-          { title: 'Lead Generation', icon: 'users' },
-          { title: 'A Website That Sells', icon: 'layout' },
-          { title: 'CRM & Pipeline', icon: 'layers' },
-          { title: 'Landing Pages', icon: 'monitor' },
-          { title: 'Marketing Automations', icon: 'settings' },
-          { title: 'Sales Process', icon: 'trending-up' },
-          { title: 'Conversion Rates', icon: 'zap' },
-          { title: 'Integrations', icon: 'box' },
-        ].map(({ title, icon }) => (
+        {painPoints.map(({ title, icon }) => (
           <Card variant="default" padding="md" class="text-center">
             <Icon name={icon} class="w-10 h-10 mx-auto text-foreground-muted" strokeWidth={1.5} />
             <p class="mt-3 text-xs font-bold uppercase tracking-wide text-foreground">{title}</p>
@@ -155,269 +159,200 @@ const faqItems = [
   </section>
 
   {/* ═══════════════════════════════════════════════════
-      SOLUTION — Letter-style offer
+      CASE STUDY — Peter's story
   ═══════════════════════════════════════════════════ */}
-  <section class="py-[var(--space-section-lg)]">
+  <section class="py-[var(--space-section-lg)] bg-secondary" id="case-study">
     <div class="mx-auto max-w-6xl px-6">
       <div class="text-center mb-[var(--space-section-header)]">
-        <p class="text-sm font-semibold text-brand-600 uppercase tracking-wider mb-3">The Solution</p>
+        <p class="text-sm font-semibold text-brand-600 uppercase tracking-wider mb-3">Case Study</p>
         <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight text-foreground">
-          We'll Build You The Foundation<br />You Need in Just 90 Days.
+          70,000 followers. Couldn't keep up.
         </h2>
       </div>
 
       <Card variant="outline" padding="lg" class="max-w-2xl mx-auto pas-letter">
-        <p><strong>Hey Business Owner,</strong></p>
-        <p>We're not here to give you another "pretty website."</p>
-        <p><strong>{siteConfig.name}</strong> delivers a full, sales-driven system, built by experts, to scale your business — fast.</p>
-        <p>Most small business owners hit a ceiling. Your systems, brand, and website aren't just underperforming — they're <strong>costing you leads and sales</strong>.</p>
-        <p>You know your online presence could unlock serious growth, but where do you even start?</p>
+        <p>Peter has 70,000 LinkedIn followers. One post last month hit 150,000 impressions.</p>
+        <p>Every morning: hundreds of new connection requests. A newsletter with thousands of subscribers — but LinkedIn owns the email addresses, not him. Leads showing up in his website chat with answers like <em>"busy but happy, would like more clients"</em> — and no way to know which ones were worth his time.</p>
+        <p>He told me exactly what he wanted:</p>
+        <blockquote>"Wake up. Open Gmail. See a few pre-drafted replies to the right people. Review them. Hit send. That's all I want to do."</blockquote>
 
-        <h3>The Promise...</h3>
-        <p>With our program, you'll achieve more in 90 days than most businesses do in 12 months.</p>
-        <p>We don't just build your website — we deliver a high-converting sales system, tailored to your goals, so you can:</p>
-        <ol>
-          <li>Stop losing leads to competitors</li>
-          <li>Scale sales activity faster</li>
-          <li>Hit $10K, $50K, $100K+ months</li>
-        </ol>
+        <h3>Step 1: Get the LinkedIn subscribers off LinkedIn.</h3>
+        <p>Peter had thousands of newsletter subscribers on LinkedIn. LinkedIn knows who they are. He didn't. We scraped the subscriber list from LinkedIn's UI into a CSV, uploaded it to a DM tool, and ran an automated sequence: <em>"You're already subscribed to my newsletter here — I have a more in-depth version via email. Want me to send it?"</em></p>
+        <p>When they said yes, he sent the link. They opted in. He owns those emails now. LinkedIn doesn't.</p>
 
-        <h3>The Done-for-You Offer...</h3>
-        <p>Here's how it works:</p>
-        <ul>
-          <li><strong>Done-for-You Website & Systems:</strong> We build and launch a professional, conversion-optimised website with CRM, lead funnels, payment pages, and more.</li>
-          <li><strong>Sell-by-Chat Integration:</strong> Use SMS, WhatsApp, and email to close deals faster.</li>
-          <li><strong>Custom Branding:</strong> Fully tailored to your business, using proven high-converting layouts.</li>
-          <li><strong>Coaching & Setup Support:</strong> Beyond the tech, we guide you through sales strategies, automation, and lead generation tactics.</li>
-          <li><strong>Continued Growth Tools:</strong> Monthly drops of new templates, walkthroughs, and SOPs to keep scaling.</li>
-        </ul>
+        <h3>Step 2: Stop qualifying leads too early.</h3>
+        <p>The sign-up form asked "what size company are you at?" before anyone had read a single email from Peter. Nobody answered. Nobody booked a call. We moved that question to day 8 of his welcome sequence — after they'd seen enough to trust him. Four clickable options. Each click tagged them in Kit.</p>
 
-        <h3>The Result...</h3>
-        <p>By the end of this project, you'll have:</p>
-        <ul>
-          <li>A system built to capture leads, drive sales, and build trust</li>
-          <li>Confidence and clarity to grow your business online</li>
-          <li>A strategic edge to outsell the competition</li>
-        </ul>
+        <h3>Step 3: Build the morning inbox.</h3>
+        <p>When someone answers Peter's open question on his website, that answer lands in Kit as a custom field. A webhook fires. Claude reads the subscriber's name, company size, and their answer — and writes a draft reply in his Gmail before he wakes up.</p>
+        <p>He opens Gmail. Reads the draft. Edits one line if he wants to. Hits send.</p>
 
-        <p class="font-bold text-foreground !mt-6">So... stop guessing. Stop wasting time. And stop leaving money on the table.</p>
+        <p class="font-bold text-foreground !mt-6">One post last week drove 30–50 email subscribers in 24 hours. The campaign is still running daily.</p>
 
         <div class="mt-8 pt-6 border-t border-border">
           <Button size="lg" href="#get-started" fullWidth class="!h-14 !text-base">
-            Get Your Free Growth Plan
+            Build This For Me
             <Icon name="arrow-right" size="sm" class="ml-2" />
           </Button>
-          <p class="text-center text-xs text-foreground-muted mt-2">See what's included, what it costs, and how to get started.</p>
         </div>
       </Card>
     </div>
   </section>
 
   {/* ═══════════════════════════════════════════════════
-      DARK TRANSITION
+      DARK BREAK
   ═══════════════════════════════════════════════════ */}
   <CTA variant="invert" size="lg">
     <Badge slot="logo" variant="brand" pill>Done For You</Badge>
-    <h2 slot="heading">Growth Mode</h2>
-    <p slot="description">Your all-in-one solution to attract and convert clients, done-for-you and implemented in 90 days.</p>
+    <h2 slot="heading">AssetBolt</h2>
+    <p slot="description">I move your LinkedIn audience into an email list you own — with a system that qualifies them and surfaces the ones ready to buy, hire you, or book you to speak.</p>
   </CTA>
 
   {/* ═══════════════════════════════════════════════════
-      OUTCOMES — Stats
+      SOLUTION — Two tiers
   ═══════════════════════════════════════════════════ */}
-  <section class="py-[var(--space-section-lg)]">
+  <section class="py-[var(--space-section-lg)]" id="pricing">
     <div class="mx-auto max-w-6xl px-6">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-        <div>
-          <p class="text-sm font-semibold text-brand-600 uppercase tracking-wider mb-3">The Outcomes We Drive</p>
-          <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight text-foreground">
-            Supercharge Your Website & Landing Pages
-          </h2>
-        </div>
-        <div class="grid grid-cols-3 gap-3 md:gap-4">
-          <StatCard label="Brand" value="10x" icon="star" />
-          <StatCard label="Conversion" value="10x" icon="trending-up" />
-          <StatCard label="Manage" value="10x" icon="zap" />
-        </div>
+      <div class="text-center mb-[var(--space-section-header)]">
+        <p class="text-sm font-semibold text-brand-600 uppercase tracking-wider mb-3">The Solution</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight text-foreground">
+          Two ways in. One outcome.
+        </h2>
+        <p class="mt-4 text-base leading-relaxed text-foreground-muted max-w-2xl mx-auto">
+          Start with the migration to own your list. Upgrade to the full system when you're ready
+          to know exactly which subscribers will buy.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <Card variant="default" padding="lg">
+          <Badge variant="default" pill>Entry Point</Badge>
+          <h3 class="mt-4 font-display text-2xl font-bold tracking-tight text-foreground">LinkedIn Migration</h3>
+          <div class="mt-4 flex items-baseline gap-2">
+            <span class="text-4xl font-extrabold text-foreground">$500</span>
+            <span class="text-sm text-foreground-muted">/month</span>
+          </div>
+          <p class="mt-3 text-sm text-foreground-muted">Monthly retainer. Ongoing subscriber scrapes, Dripify campaign management, and Kit list growth.</p>
+          <ul class="mt-6 flex flex-col gap-3">
+            {[
+              'LinkedIn newsletter subscribers → Kit opt-in',
+              'Monthly re-scrapes to catch new subscribers',
+              'Dripify DM sequence setup and management',
+              'Kit landing page and opt-in form',
+              'Remote setup — one Zoom call to get started',
+            ].map((item) => (
+              <li class="flex gap-3 items-start text-sm text-foreground-muted">
+                <Icon name="check-circle" size="sm" class="text-brand-500 mt-0.5 shrink-0" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+          <div class="mt-8">
+            <Button size="lg" href="#get-started" variant="outline" fullWidth class="!h-12">
+              Get Started
+            </Button>
+          </div>
+        </Card>
+
+        <Card variant="outline" padding="lg" class="border-brand-500 border-2">
+          <Badge variant="brand" pill pulse>Full System</Badge>
+          <h3 class="mt-4 font-display text-2xl font-bold tracking-tight text-foreground">AssetBolt System</h3>
+          <div class="mt-4 flex items-baseline gap-2">
+            <span class="text-4xl font-extrabold text-foreground">$2,500</span>
+            <span class="text-sm text-foreground-muted">setup + $1,200/mo</span>
+          </div>
+          <p class="mt-3 text-sm text-foreground-muted">Everything in Migration, plus the full subscriber intelligence layer.</p>
+          <ul class="mt-6 flex flex-col gap-3">
+            {[
+              'Everything in LinkedIn Migration',
+              'Day-8 qualification email with 4-click tagging',
+              'RightMessage: right CTA to the right subscriber',
+              'Gmail draft automation for qualified leads',
+              'Subscriber intelligence dashboard',
+            ].map((item) => (
+              <li class="flex gap-3 items-start text-sm text-foreground-muted">
+                <Icon name="check-circle" size="sm" class="text-brand-500 mt-0.5 shrink-0" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+          <div class="mt-8">
+            <Button size="lg" href="#get-started" fullWidth class="!h-12">
+              Book a Strategy Call
+              <Icon name="arrow-right" size="sm" class="ml-2" />
+            </Button>
+          </div>
+        </Card>
       </div>
     </div>
   </section>
 
   {/* ═══════════════════════════════════════════════════
-      SOCIAL PROOF — Testimonial
+      HOW IT WORKS
   ═══════════════════════════════════════════════════ */}
-  <section class="invert-section py-[var(--space-section-lg)] bg-background">
+  <section class="py-[var(--space-section-lg)] bg-secondary" id="how-it-works">
     <div class="mx-auto max-w-6xl px-6">
-      <div class="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12 items-center">
-        <div class="md:col-span-3">
-          <svg class="w-10 h-10 text-foreground-subtle opacity-50" viewBox="0 0 24 24" fill="currentColor"><path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z" /></svg>
-          <p class="mt-4 text-2xl font-semibold leading-snug text-foreground">
-            I was thinking about my brand, website and marketing channels
-            completely wrong before I joined. The results have been incredible.
-          </p>
-          <div class="mt-6">
-            <p class="text-sm font-bold text-foreground">Matthew LaValley</p>
-            <p class="text-xs text-foreground-muted">Founder at Seven Figure Creators</p>
-          </div>
-        </div>
-        <div class="md:col-span-2 grid grid-cols-2 gap-6">
-          <div>
-            <p class="text-5xl font-extrabold text-foreground">3x</p>
-            <p class="mt-1 text-xs uppercase tracking-wider text-foreground-muted">Key hires from competition</p>
-          </div>
-          <div>
-            <p class="text-5xl font-extrabold text-foreground">9x</p>
-            <p class="mt-1 text-xs uppercase tracking-wider text-foreground-muted">High performing hires</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  {/* ═══════════════════════════════════════════════════
-      HOW IT WORKS — Steps
-  ═══════════════════════════════════════════════════ */}
-  <section class="py-[var(--space-section-lg)]">
-    <div class="mx-auto max-w-6xl px-6">
-      <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight text-foreground text-center">How It Works</h2>
+      <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight text-foreground text-center">
+        How It Works
+      </h2>
       <div class="max-w-xl mx-auto mt-[var(--space-section-header)] flex flex-col gap-8">
         {[
-          { step: 'First', title: 'Book a Free Intro Chat', desc: 'See past results. And discover how we can help your business succeed.' },
-          { step: 'Second', title: 'We Set You Up', desc: 'Get a ready-to-go 10x brand, website, and lead strategy.' },
-          { step: 'Then', title: 'Use Our Platform', desc: 'Leverage B2B integrations and easy tools. Launch new strategies and boost conversions.' },
+          {
+            step: '1',
+            title: 'Book a Strategy Call',
+            desc: 'We review your LinkedIn audience size, newsletter subscribers, and what you\'re launching. 30 minutes. I tell you exactly what\'s possible and what it will take.',
+          },
+          {
+            step: '2',
+            title: 'One Setup Session',
+            desc: 'Remote access, one Zoom call. I scrape your subscriber list, configure the Dripify campaign, and build your Kit opt-in page. You\'re live the same day.',
+          },
+          {
+            step: '3',
+            title: 'Your List Grows While You Work',
+            desc: 'Dripify runs the outreach daily. New subscribers opt in. I handle monthly re-scrapes to keep the pipeline full. You check Gmail each morning and reply to the ones worth your time.',
+          },
         ].map(({ step, title, desc }) => (
           <div class="flex gap-5 items-start">
-            <div class="w-3 h-3 rounded-full bg-brand-500 shrink-0 mt-1.5" />
+            <div class="w-8 h-8 rounded-full bg-brand-500 text-foreground shrink-0 flex items-center justify-center text-sm font-bold">{step}</div>
             <div>
-              <p class="text-base text-foreground">{step}, <strong>{title}</strong></p>
+              <p class="text-base font-bold text-foreground">{title}</p>
               <p class="text-sm text-foreground-muted mt-1">{desc}</p>
             </div>
           </div>
         ))}
       </div>
-      <div class="text-center mt-10">
-        <Button size="lg" href="#get-started" variant="outline" class="!h-12 !px-8">
-          Book a value-packed call
-        </Button>
-      </div>
-    </div>
-  </section>
-
-  {/* ═══════════════════════════════════════════════════
-      INCLUSIONS
-  ═══════════════════════════════════════════════════ */}
-  <section class="py-[var(--space-section-lg)] bg-secondary">
-    <div class="mx-auto max-w-6xl px-6">
-      <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight text-foreground text-center">Offer Inclusions</h2>
-      <div class="mt-[var(--space-section-header)] grid grid-cols-1 md:grid-cols-2">
-        {[
-          { title: 'Brand Research & SEO Analysis', desc: 'Deep-dive into your market, competitors, and keyword opportunities to position you for maximum visibility.' },
-          { title: 'Web Design & Copywriting', desc: 'Craft beautiful, high-converting pages with copy that speaks directly to your buyer and drives action.' },
-          { title: 'Strategy & Sitemap', desc: 'Map out your entire online presence with a clear structure built for conversions and growth.' },
-          { title: 'CRM & Automation Setup', desc: 'Build and launch your complete CRM, lead funnels, payment pages, and sales automation workflows.' },
-          { title: 'Sales Funnel Implementation', desc: 'High-converting landing pages, upsell flows, and complete funnel architecture built and optimised for your offer.' },
-          { title: 'Development / Tech', desc: 'Production-grade code, integrations, and infrastructure built to perform, scale, and grow with your business.' },
-        ].map(({ title, desc }, i) => (
-          <div class:list={[
-            'py-6 md:p-6 border-b border-border',
-            i % 2 === 0 && 'md:border-r'
-          ]}>
-            <h3 class="text-xs font-bold uppercase tracking-wide text-foreground">{title}</h3>
-            <p class="mt-1.5 text-sm leading-relaxed text-foreground-muted">{desc}</p>
-          </div>
-        ))}
-      </div>
       <div class="text-center mt-12">
-        <p class="text-4xl font-extrabold text-foreground">$599</p>
-        <Button size="md" href="#get-started" variant="link" class="mt-2">
-          Get free sample chapters
-          <Icon name="arrow-right" size="sm" class="ml-1" />
+        <Button size="lg" href="#get-started" variant="outline" class="!h-12 !px-8">
+          Book a Strategy Call
         </Button>
       </div>
     </div>
   </section>
 
   {/* ═══════════════════════════════════════════════════
-      BONUSES
-  ═══════════════════════════════════════════════════ */}
-  <section class="py-[var(--space-section-lg)]">
-    <div class="mx-auto max-w-6xl px-6">
-      <div class="text-center mb-[var(--space-section-header)]">
-        <p class="text-sm font-semibold text-brand-600 uppercase tracking-wider mb-3">But It Gets Better...</p>
-        <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight text-foreground">Because There's More!</h2>
-        <p class="mt-4 text-base leading-relaxed text-foreground-muted max-w-2xl mx-auto">
-          We are strategists, designers and developers. Innovators and problem
-          solvers. Small enough to be simple and quick.
-        </p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {[
-          { num: 'Bonus 1', title: 'Membership to Our Creator Community', desc: 'Get 1 Year of Membership including access to a community of creators, bi-weekly coaching calls, and course modules.' },
-          { num: 'Bonus 2', title: 'Monthly Product Drops', desc: 'Get access to 12 Months of Monthly Product Drops, including high-converting page templates, plug-and-play strategies, and walkthroughs.' },
-          { num: 'Bonus 3', title: 'Weekly Group Coaching', desc: 'Get 2 Weekly Group Coaching Sessions with on-demand tech help, live strategy sessions, expert guidance, and real-time feedback.' },
-          { num: 'Bonus 4', title: 'Exclusive Growth Playbook Library', desc: 'Unlock our Exclusive Growth Playbook Library, featuring proven frameworks, ready-to-use scripts, and a curated collection of SOPs.' },
-        ].map(({ num, title, desc }) => (
-          <Card variant="default" padding="lg">
-            <p class="text-xs font-bold uppercase tracking-wide text-brand-500">{num}</p>
-            <h3 class="mt-1 text-lg font-bold text-foreground">{title}</h3>
-            <p class="mt-2 text-sm leading-relaxed text-foreground-muted">{desc}</p>
-          </Card>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  {/* ═══════════════════════════════════════════════════
-      PRICING + GUARANTEE
-  ═══════════════════════════════════════════════════ */}
-  <section class="py-[var(--space-section-lg)] bg-secondary">
-    <div class="mx-auto max-w-6xl px-6">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
-        <div class="invert-section rounded-xl bg-background p-8">
-          <p class="text-xs font-bold uppercase tracking-wide text-foreground-muted">Simple Pricing</p>
-          <p class="mt-2 text-xl font-bold text-foreground leading-snug">One-time payment for full access. No payment plans — straightforward and simple.</p>
-          <div class="mt-6 flex items-baseline gap-2">
-            <span class="text-5xl font-extrabold text-foreground">$599</span>
-            <span class="text-sm text-foreground-muted">per month</span>
-          </div>
-          <Button size="lg" href="#get-started" fullWidth class="mt-6 !h-12">
-            Upgrade Now
-          </Button>
-        </div>
-        <div>
-          <h3 class="font-display text-2xl md:text-3xl font-bold tracking-tight text-foreground">Our Guarantee</h3>
-          <p class="mt-4 text-base leading-relaxed text-foreground-muted">
-            Here at {siteConfig.name} we focus on markets where technology,
-            innovation, and capital can unlock long-term value. If you're not
-            completely satisfied within the first 30 days, we'll work with you
-            until you are — or give you a full refund. No questions asked.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  {/* ═══════════════════════════════════════════════════
-      COMPARISON — With vs Without
+      COMPARISON
   ═══════════════════════════════════════════════════ */}
   <section class="py-[var(--space-section-lg)]">
     <div class="mx-auto max-w-6xl px-6">
       <div class="text-center mb-[var(--space-section-header)]">
         <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight text-foreground">
-          Here's What Growth Looks Like<br />With vs. Without Growth Mode
+          Owned list vs. rented audience
         </h2>
-        <p class="mt-4 text-base leading-relaxed text-foreground-muted max-w-2xl mx-auto">Still wondering how big of a difference it makes? Let's break it down.</p>
+        <p class="mt-4 text-base leading-relaxed text-foreground-muted max-w-2xl mx-auto">
+          LinkedIn followers are borrowed. An email list is an asset.
+        </p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <Card variant="default" padding="lg">
-          <h3 class="text-base font-bold text-foreground mb-4">With Growth Mode (The Smart Way)</h3>
+          <h3 class="text-base font-bold text-foreground mb-4">With AssetBolt</h3>
           <ul class="flex flex-col gap-3">
             {[
-              ['Strategic focus', 'A clear, proven roadmap built for scaling, so every move counts.'],
-              ['Fast execution', 'Use plug-and-play systems to launch in days, not months.'],
-              ['Guided support', 'Coaches and a community one message away when you need help.'],
-              ['Cost-effective growth', 'One system covers it all, so every dollar drives real results.'],
-              ['Clarity & momentum', 'Know exactly what to do next and see results as you go.'],
+              ['You own the relationship', 'No algorithm can take it away from you.'],
+              ['Launch day has a list behind it', 'Email your subscribers directly, on your schedule.'],
+              ['You know who\'s ready to buy', 'Qualification tags tell you who to DM and who to nurture.'],
+              ['Reach survives algorithm changes', 'Your list is yours regardless of what LinkedIn does next.'],
+              ['Compounding asset', 'Every month the list grows — and so does the intelligence on it.'],
             ].map(([label, desc]) => (
               <li class="flex gap-3 text-sm text-foreground-muted">
                 <div class="w-2 h-2 rounded-full bg-brand-500 shrink-0 mt-1.5" />
@@ -427,14 +362,14 @@ const faqItems = [
           </ul>
         </Card>
         <Card variant="solid" padding="lg">
-          <h3 class="text-base font-bold text-foreground mb-4">Without Growth Mode (The Hard Way)</h3>
+          <h3 class="text-base font-bold text-foreground mb-4">Without AssetBolt</h3>
           <ul class="flex flex-col gap-3">
             {[
-              ['Scattered efforts', 'Chasing tactics, testing random strategies, and hoping something sticks.'],
-              ['Slow implementation', 'Trial-and-error, wasted months, and constantly starting from scratch.'],
-              ['Going solo', 'No expert guidance, no feedback, no support when you hit a wall.'],
-              ['High costs, low ROI', 'Spending on random tools, agencies, and freelancers, often with disappointing returns.'],
-              ['Overwhelm & doubt', 'Always guessing, second-guessing, and feeling stuck.'],
+              ['LinkedIn owns the data', 'You see names. You can\'t email them. You don\'t own them.'],
+              ['Launch day is a cold start', 'No email list means no direct line to the people who follow you.'],
+              ['Every lead qualified manually', 'Checking profiles, guessing intent, DM-ing and hoping.'],
+              ['One update away from zero', 'Algorithm changes cut reach overnight. It\'s happened before.'],
+              ['No compounding', 'Followers stay on LinkedIn. Nothing carries over to your business.'],
             ].map(([label, desc]) => (
               <li class="flex gap-3 text-sm text-foreground-muted">
                 <div class="w-2 h-2 rounded-full bg-error shrink-0 mt-1.5" />
@@ -464,13 +399,18 @@ const faqItems = [
   ═══════════════════════════════════════════════════ */}
   <section class="py-[var(--space-section-lg)]" id="get-started">
     <div class="mx-auto max-w-xl px-6 text-center">
-      <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight text-foreground">Ready to Get Started?</h2>
-      <p class="mt-4 text-base leading-relaxed text-foreground-muted">Enter your details below and we'll send you everything you need to get started.</p>
+      <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight text-foreground">
+        Ready to own your audience?
+      </h2>
+      <p class="mt-4 text-base leading-relaxed text-foreground-muted">
+        Enter your details and I'll be in touch within 24 hours to book a strategy call.
+        No pitch deck. Just a conversation about your audience and what's possible.
+      </p>
       <div class="mt-8 text-left">
         <LeadCaptureForm
           client:load
           formTags={formTags}
-          submitLabel="Get Your Free Growth Plan"
+          submitLabel="Book a Strategy Call"
           termsHtml={termsHtml}
         />
       </div>
@@ -482,7 +422,7 @@ const faqItems = [
     <MobileFormSheet
       client:load
       formTags={formTags}
-      submitLabel="Get Your Free Growth Plan"
+      submitLabel="Book a Strategy Call"
       termsHtml={termsHtml}
     />
   </div>
@@ -501,10 +441,17 @@ const faqItems = [
 </BaseLayout>
 
 <style>
-  /* Letter prose — semantic HTML inside Card, all values use theme tokens */
   .pas-letter :global(p) { margin-top: 1em; }
   .pas-letter :global(p:first-child) { margin-top: 0; }
   .pas-letter :global(strong) { color: var(--color-foreground); font-weight: 600; }
+  .pas-letter :global(em) { color: var(--color-foreground-secondary); font-style: italic; }
+  .pas-letter :global(blockquote) {
+    border-left: 3px solid var(--color-brand-500);
+    padding-left: 1rem;
+    margin: 1.25em 0;
+    font-style: italic;
+    color: var(--color-foreground-secondary);
+  }
   .pas-letter :global(h3) {
     font-family: var(--font-display);
     font-size: 1.0625rem;
@@ -513,16 +460,5 @@ const faqItems = [
     color: var(--color-foreground);
     margin-top: 1.75em;
     margin-bottom: 0.25em;
-  }
-  .pas-letter :global(ul),
-  .pas-letter :global(ol) {
-    padding-left: 1.25em;
-    margin-top: 0.5em;
-  }
-  .pas-letter :global(li) {
-    margin-top: 0.4em;
-    font-size: 0.9375rem;
-    line-height: var(--theme-body-leading);
-    color: var(--color-foreground-muted);
   }
 </style>

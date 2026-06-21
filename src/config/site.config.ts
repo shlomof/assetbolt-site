@@ -53,13 +53,13 @@ export interface SiteConfig {
 }
 
 const siteConfig: SiteConfig = {
-  name: 'Damn Good Funnels',
-  description: 'Simple landing pages that actually convert. Built on a proper design system so AI can\'t produce slop.',
-  url: SITE_URL || 'https://damngoodfunnels.com',
+  name: 'AssetBolt',
+  description: 'Turn your LinkedIn audience into an email list you own — with a qualification system that tells you which subscribers are worth your time.',
+  url: SITE_URL || 'https://assetbolt.com',
   ogImage: '/og-default.png',
-  author: 'Steve Butler',
-  email: 'hello@damngoodfunnels.com',
-  phoneCountryCode: 'AU',
+  author: 'Shlomo Freund',
+  email: 'shlomo@freefinancialself.com',
+  phoneCountryCode: 'IL',
   socialLinks: [],
   verification: {
     google: GOOGLE_SITE_VERIFICATION,
@@ -67,14 +67,14 @@ const siteConfig: SiteConfig = {
   },
   branding: {
     logo: {
-      alt: 'Damn Good Funnels',
+      alt: 'AssetBolt',
     },
     favicon: {
       svg: '/favicon.svg',
     },
     colors: {
-      themeColor: '#3ECF8E',
-      backgroundColor: '#0f0f11',
+      themeColor: '#E8622A',
+      backgroundColor: '#0D0A05',
     },
   },
 };

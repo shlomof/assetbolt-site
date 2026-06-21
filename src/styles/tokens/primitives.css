@@ -24,13 +24,11 @@
   --gray-950: oklch(13% 0.016 265);
 
   /* -------------------------------------------------------------------------
-     Brand Emerald Scale
-     Inspired by Supabase green, tuned slightly cooler (hue 162) for
-     a modern AI/tech feel. Works on both light and dark backgrounds.
-     brand-300 ≈ bright emerald for glows & dark-bg accents
-     brand-500 = primary, WCAG AA readable on white
+     Brand Orange Scale — AssetBolt (#E8622A)
+     Warm orange, OKLCH hue 42. Bold on dark backgrounds, readable on light.
+     brand-500 = primary CTA color
      ------------------------------------------------------------------------- */
-  --brand-hue: 162;
+  --brand-hue: 42;
   --brand-50: oklch(97% 0.02 var(--brand-hue));
   --brand-100: oklch(94% 0.04 var(--brand-hue));
   --brand-200: oklch(89% 0.08 var(--brand-hue));
