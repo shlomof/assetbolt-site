@@ -24,8 +24,8 @@ const termsHtml = `<p>By providing your details, you agree to receive communicat
 const painPoints = [
   { title: 'Algorithm changes kill your reach', icon: 'trending-down' },
   { title: 'You can\'t email your own subscribers', icon: 'mail' },
-  { title: 'Launch day arrives with no list to send to', icon: 'calendar' },
-  { title: '300+ connection requests, no system to handle them', icon: 'users' },
+  { title: 'No list ready the moment you need one', icon: 'calendar' },
+  { title: 'Inbound interest piles up faster than you can sort it', icon: 'users' },
   { title: 'Qualifying leads manually, one by one', icon: 'search' },
   { title: 'Top prospects slip through while you\'re busy', icon: 'alert-circle' },
 ];
@@ -33,7 +33,7 @@ const painPoints = [
 const faqItems = [
   {
     title: 'How many LinkedIn subscribers do I need for this to be worth it?',
-    content: 'The migration works best from around 1,000 LinkedIn newsletter subscribers. Below that, the DM volume doesn\'t justify the setup. If you\'re not there yet, get in touch anyway — we can map out what to build toward.',
+    content: 'The migration works best from around 1,000 LinkedIn newsletter subscribers. Below that, the DM volume doesn\'t justify the setup. If you\'re not there yet, get in touch anyway. We can map out what to build toward.',
   },
   {
     title: 'What tools do I need on my end?',
@@ -41,7 +41,7 @@ const faqItems = [
   },
   {
     title: 'Do I have to do anything once it\'s set up?',
-    content: 'One thing only: when a LinkedIn subscriber replies "yes" to the automated DM, you send them your opt-in link. That reply has to come from your LinkedIn account — it can\'t be automated. It takes about 5 minutes a day and is the only step that requires you.',
+    content: 'One thing only: when a LinkedIn subscriber replies "yes" to the automated DM, you send them your opt-in link. That reply has to come from your LinkedIn account. It can\'t be automated. It takes about 5 minutes a day and is the only step that requires you.',
   },
   {
     title: 'How quickly will I see results?',
@@ -49,13 +49,13 @@ const faqItems = [
   },
   {
     title: 'What\'s the difference between the Migration and the Full System?',
-    content: 'The migration gets your LinkedIn subscribers into an email list you own. The Full AssetBolt System adds intelligence on top — a qualification sequence that tags subscribers by company size and intent, and a RightMessage layer that shows the right call-to-action to the right person, so you know exactly who\'s worth reaching out to before you do.',
+    content: 'The migration gets your LinkedIn subscribers into an email list you own. The Full AssetBolt System adds the intelligence layer on top: a qualification sequence that tags subscribers by company size and intent, plus a RightMessage layer that shows the right call-to-action to the right person, so you know exactly who\'s worth reaching out to before you do.',
   },
 ];
 ---
 
 <BaseLayout
-  title="AssetBolt — Turn Your LinkedIn Audience Into an Email List You Own"
+  title="AssetBolt: Turn Your LinkedIn Audience Into an Email List You Own"
   description="Done-for-you LinkedIn newsletter migration and subscriber intelligence system. Built for creators and coaches with a LinkedIn audience they don't yet own."
 >
   {/* ── Nav ── */}
@@ -67,12 +67,12 @@ const faqItems = [
   <Hero layout="centered" size="lg" showGrid class="invert-section bg-background">
     <Badge slot="badge" variant="brand" pill>For LinkedIn Creators With an Audience</Badge>
     <h1 slot="title" class="max-w-3xl mx-auto">
-      You have thousands of LinkedIn followers.<br />You own none of them.
+      You have thousands of LinkedIn followers.<br />You don't know which ones are ready to buy.
     </h1>
     <p slot="description" class="max-w-xl mx-auto">
-      When LinkedIn changes the algorithm — or the next time you need your audience to show up — you're
-      starting from zero. I move your audience into an email list you control, with a qualification
-      system that tells you which subscribers are worth your time.
+      LinkedIn won't tell you who's ready to buy, hire you, or book you to speak. I move your audience
+      into an email list you control, then tag and qualify it so every morning you know exactly who's
+      worth a reply.
     </p>
     <Fragment slot="actions">
       <Button size="lg" href="#get-started" class="!h-14 !px-8 !text-base">
@@ -85,7 +85,7 @@ const faqItems = [
       {[
         'LinkedIn newsletter → your Kit list',
         'Qualification system that surfaces ready buyers',
-        'Done-for-you setup — live in one Zoom call',
+        'Done-for-you setup, live in one Zoom call',
       ].map((item) => (
         <li class="flex items-center gap-2 text-sm text-foreground-muted">
           <Icon name="check" size="sm" class="text-brand-500 shrink-0" />
@@ -108,11 +108,11 @@ const faqItems = [
           </h2>
           <p class="mt-5 text-base leading-relaxed text-foreground-muted">
             You've spent years building a following. Every post, every comment, every connection request
-            — all of it happened inside LinkedIn's walls. LinkedIn owns the platform you built it on, not you.
+            happened inside LinkedIn's walls. LinkedIn owns the platform you built it on, not you.
           </p>
           <p class="mt-4 text-base leading-relaxed text-foreground-muted">
             Your newsletter subscribers? You can see their name. You can't export the list, and you can't
-            add them to your own email platform — they have to choose to opt in, every time, because you
+            add them to your own email platform. They have to choose to opt in, every time, because you
             don't legally own that relationship until they do. Until then, the moment LinkedIn's algorithm
             shifts, your reach shifts with it.
           </p>
@@ -145,8 +145,8 @@ const faqItems = [
         </h2>
         <p class="mt-4 text-base leading-relaxed text-foreground-muted max-w-2xl mx-auto">
           Every day you're on LinkedIn without an owned list, you're one algorithm update away from
-          starting over. And if you've got something coming — a launch, a campaign, a season — the
-          clock is already running.
+          starting over. And if you've got a launch, a campaign, or a season coming up, the clock is
+          already running.
         </p>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
@@ -174,17 +174,17 @@ const faqItems = [
 
       <Card variant="outline" padding="lg" class="max-w-2xl mx-auto pas-letter">
         <p>Peter has 70,000 LinkedIn followers. One post last month hit 150,000 impressions.</p>
-        <p>Every morning: hundreds of new connection requests. A newsletter with thousands of subscribers — but those email addresses live with LinkedIn, not him. He can't message any of them directly. Leads showing up in his website chat with answers like <em>"busy but happy, would like more clients"</em> — and no way to know which ones were worth his time.</p>
+        <p>Every morning: hundreds of new connection requests. A newsletter with thousands of subscribers, but those email addresses live with LinkedIn, not him. He can't message any of them directly. Leads showing up in his website chat with answers like <em>"busy but happy, would like more clients,"</em> with no way to know which ones were worth his time.</p>
         <p>He told me exactly what he wanted, eventually:</p>
         <blockquote>"Wake up. Open Gmail. See a few pre-drafted replies to the right people. Review them. Hit send. That's all I want to do."</blockquote>
         <p>That's the system we're still building toward. Here's what's live today.</p>
 
         <h3>Step 1: Get the LinkedIn subscribers off LinkedIn.</h3>
-        <p>Peter had thousands of newsletter subscribers on LinkedIn. LinkedIn knows who they are. He didn't. We scraped the subscriber list from LinkedIn's UI into a CSV, uploaded it to a DM tool, and ran an automated sequence: <em>"You're already subscribed to my newsletter here — I have a more in-depth version via email. Want me to send it?"</em></p>
+        <p>Peter had thousands of newsletter subscribers on LinkedIn. LinkedIn knows who they are. He didn't. We scraped the subscriber list from LinkedIn's UI into a CSV, uploaded it to a DM tool, and ran an automated sequence: <em>"You're already subscribed to my newsletter here. I have a more in-depth version via email. Want me to send it?"</em></p>
         <p>When they said yes, he sent the link. They opted in. He owns those emails now. LinkedIn doesn't.</p>
 
         <h3>Step 2: Ask the right question at the right time.</h3>
-        <p>The sign-up form used to ask "what size company are you at?" before anyone had read a single email from Peter. Nobody answered. Nobody booked a call. We moved that question to day 8 of his welcome sequence — after they'd seen enough to trust him. Four clickable options. Each click tags them in Kit, so Peter can see who's actually worth a reply.</p>
+        <p>The sign-up form used to ask "what size company are you at?" before anyone had read a single email from Peter. Nobody answered. Nobody booked a call. So we moved that question later: day 8 of his welcome sequence, after they'd seen enough to trust him, as four clickable options instead of a blank field. Each click tags the subscriber in Kit, so Peter can see who's actually worth a reply.</p>
 
         <p class="font-bold text-foreground !mt-6">One post last week drove 30–50 email subscribers in 24 hours. The campaign is still running daily.</p>
 
@@ -204,7 +204,7 @@ const faqItems = [
   <CTA variant="invert" size="lg">
     <Badge slot="logo" variant="brand" pill>Done For You</Badge>
     <h2 slot="heading">AssetBolt</h2>
-    <p slot="description">I move your LinkedIn audience into an email list you own — with a system that qualifies them and surfaces the ones ready to buy, hire you, or book you to speak.</p>
+    <p slot="description">I move your LinkedIn audience into an email list you own, then qualify it so you know exactly who's ready to buy, hire you, or book you to speak.</p>
   </CTA>
 
   {/* ═══════════════════════════════════════════════════
@@ -238,7 +238,7 @@ const faqItems = [
               'Monthly re-scrapes to catch new subscribers',
               'Dripify DM sequence setup and management',
               'Kit landing page and opt-in form',
-              'Remote setup — one Zoom call to get started',
+              'Remote setup, one Zoom call to get started',
             ].map((item) => (
               <li class="flex gap-3 items-start text-sm text-foreground-muted">
                 <Icon name="check-circle" size="sm" class="text-brand-500 mt-0.5 shrink-0" />
@@ -257,15 +257,15 @@ const faqItems = [
           <Badge variant="brand" pill pulse>Full System</Badge>
           <h3 class="mt-4 font-display text-2xl font-bold tracking-tight text-foreground">AssetBolt System</h3>
           <div class="mt-4 flex items-baseline gap-2">
-            <span class="text-4xl font-extrabold text-foreground">$2,500</span>
-            <span class="text-sm text-foreground-muted">setup + retainer scoped on the call</span>
+            <span class="text-4xl font-extrabold text-foreground">$4,500</span>
+            <span class="text-sm text-foreground-muted">setup + $2,500/mo</span>
           </div>
           <p class="mt-3 text-sm text-foreground-muted">Everything in Migration, plus the full subscriber intelligence layer.</p>
           <ul class="mt-6 flex flex-col gap-3">
             {[
               'Everything in LinkedIn Migration',
-              'Day-8 qualification email with 4-click tagging',
-              'RightMessage: right CTA to the right subscriber',
+              'A qualification email that tags each subscriber by who they are and what they need',
+              'RightMessage: right call-to-action to the right subscriber',
               'Every subscriber tagged and segmented in Kit',
             ].map((item) => (
               <li class="flex gap-3 items-start text-sm text-foreground-muted">
@@ -350,11 +350,11 @@ const faqItems = [
               ['Launch day has a list behind it', 'Email your subscribers directly, on your schedule.'],
               ['You know who\'s ready to buy', 'Qualification tags tell you who to DM and who to nurture.'],
               ['Reach survives algorithm changes', 'Your list is yours regardless of what LinkedIn does next.'],
-              ['Compounding asset', 'Every month the list grows — and so does the intelligence on it.'],
+              ['Compounding asset', 'Every month the list grows, and so does the intelligence on it.'],
             ].map(([label, desc]) => (
               <li class="flex gap-3 text-sm text-foreground-muted">
                 <div class="w-2 h-2 rounded-full bg-brand-500 shrink-0 mt-1.5" />
-                <span><strong class="text-foreground">{label}</strong> — {desc}</span>
+                <span><strong class="text-foreground">{label}.</strong> {desc}</span>
               </li>
             ))}
           </ul>
@@ -371,7 +371,7 @@ const faqItems = [
             ].map(([label, desc]) => (
               <li class="flex gap-3 text-sm text-foreground-muted">
                 <div class="w-2 h-2 rounded-full bg-error shrink-0 mt-1.5" />
-                <span><strong class="text-foreground">{label}</strong> — {desc}</span>
+                <span><strong class="text-foreground">{label}.</strong> {desc}</span>
               </li>
             ))}
           </ul>
