@@ -1,11 +1,5 @@
 <svg width="160" height="36" viewBox="0 0 160 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="36" height="36" rx="8" fill="url(#full-gd)"/>
-  <path d="M18 24V14M18 14L13 19M18 14L23 19" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="46" y="24" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="18" font-weight="700" letter-spacing="-0.03em" fill="#f4f4f5">YourBrand</text>
-  <defs>
-    <linearGradient id="full-gd" x1="0" y1="0" x2="36" y2="36">
-      <stop stop-color="#3ECF8E"/>
-      <stop offset="1" stop-color="#2DA872"/>
-    </linearGradient>
-  </defs>
+  <rect width="36" height="36" rx="8" fill="#E8622A"/>
+  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="white" transform="translate(3.6,3.6) scale(1.2)"/>
+  <text x="46" y="24" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="18" font-weight="800" letter-spacing="-0.03em" fill="#f4f4f5">AssetBolt</text>
 </svg>
