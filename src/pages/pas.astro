@@ -175,18 +175,17 @@ const faqItems = [
       <Card variant="outline" padding="lg" class="max-w-2xl mx-auto pas-letter">
         <p>Peter has 70,000 LinkedIn followers. One post last month hit 150,000 impressions.</p>
         <p>Every morning: hundreds of new connection requests. A newsletter with thousands of subscribers, but those email addresses live with LinkedIn, not him. He can't message any of them directly. Leads showing up in his website chat with answers like <em>"busy but happy, would like more clients,"</em> with no way to know which ones were worth his time.</p>
-        <p>He told me exactly what he wanted, eventually:</p>
+
+        <h3>He'd already solved half of it himself.</h3>
+        <p>Peter built his own system to get LinkedIn subscribers onto an email list he owns: scrape the subscriber list, run it through an automated DM sequence, send anyone who replies "yes" a link to opt in. One post last week drove 30–50 new email subscribers in 24 hours. The campaign still runs daily. It's the same system I now build for other clients, learned directly from watching his.</p>
+        <p>What he didn't have was a way to know who, out of all those new subscribers, was actually worth a reply.</p>
+
+        <h3>So I built the part after the opt-in.</h3>
+        <p>His sign-up form used to ask "what size company are you at?" before anyone had read a single email from him. Nobody answered. Nobody booked a call. I moved that question to day 8 of his welcome sequence, after they'd seen enough to trust him, as four clickable options instead of a blank field. Each click tags the subscriber in Kit, so Peter can see who's actually worth a reply.</p>
+
+        <p>He told me what he wants next:</p>
         <blockquote>"Wake up. Open Gmail. See a few pre-drafted replies to the right people. Review them. Hit send. That's all I want to do."</blockquote>
-        <p>That's the system we're still building toward. Here's what's live today.</p>
-
-        <h3>Step 1: Get the LinkedIn subscribers off LinkedIn.</h3>
-        <p>Peter had thousands of newsletter subscribers on LinkedIn. LinkedIn knows who they are. He didn't. We scraped the subscriber list from LinkedIn's UI into a CSV, uploaded it to a DM tool, and ran an automated sequence: <em>"You're already subscribed to my newsletter here. I have a more in-depth version via email. Want me to send it?"</em></p>
-        <p>When they said yes, he sent the link. They opted in. He owns those emails now. LinkedIn doesn't.</p>
-
-        <h3>Step 2: Ask the right question at the right time.</h3>
-        <p>The sign-up form used to ask "what size company are you at?" before anyone had read a single email from Peter. Nobody answered. Nobody booked a call. So we moved that question later: day 8 of his welcome sequence, after they'd seen enough to trust him, as four clickable options instead of a blank field. Each click tags the subscriber in Kit, so Peter can see who's actually worth a reply.</p>
-
-        <p class="font-bold text-foreground !mt-6">One post last week drove 30–50 email subscribers in 24 hours. The campaign is still running daily.</p>
+        <p class="font-bold text-foreground !mt-6">That's the system I'm building toward now.</p>
 
         <div class="mt-8 pt-6 border-t border-border">
           <Button size="lg" href="#get-started" fullWidth class="!h-14 !text-base">
