@@ -2,7 +2,7 @@
 /**
  * AssetBolt — PAS Sales Page
  * Problem: LinkedIn owns your subscribers
- * Agitate: launch timing + algorithm risk
+ * Agitate: algorithm risk + lost reach
  * Solution: done-for-you migration + subscriber intelligence
  */
 import BaseLayout from '@/layouts/BaseLayout.astro';
@@ -49,14 +49,14 @@ const faqItems = [
   },
   {
     title: 'What\'s the difference between the Migration and the Full System?',
-    content: 'The migration gets your LinkedIn subscribers into an email list you own. The Full AssetBolt System adds intelligence on top — a qualification sequence that tags subscribers by company size, a RightMessage layer that shows the right CTA to the right person, and Gmail draft automation that writes pre-drafted replies to qualified leads before you wake up.',
+    content: 'The migration gets your LinkedIn subscribers into an email list you own. The Full AssetBolt System adds intelligence on top — a qualification sequence that tags subscribers by company size and intent, and a RightMessage layer that shows the right call-to-action to the right person, so you know exactly who\'s worth reaching out to before you do.',
   },
 ];
 ---
 
 <BaseLayout
   title="AssetBolt — Turn Your LinkedIn Audience Into an Email List You Own"
-  description="Done-for-you LinkedIn newsletter migration and subscriber intelligence system. Built for creators, coaches, and executives with a book launch coming."
+  description="Done-for-you LinkedIn newsletter migration and subscriber intelligence system. Built for creators and coaches with a LinkedIn audience they don't yet own."
 >
   {/* ── Nav ── */}
   <Header slot="header" layout="minimal" position="fixed" variant="solid" size="lg" />
@@ -70,9 +70,9 @@ const faqItems = [
       You have thousands of LinkedIn followers.<br />You own none of them.
     </h1>
     <p slot="description" class="max-w-xl mx-auto">
-      When LinkedIn changes the algorithm — or when your book launch happens — you're starting from zero.
-      I move your audience into an email list you control, with a qualification system that tells you
-      which subscribers are worth your time.
+      When LinkedIn changes the algorithm — or the next time you need your audience to show up — you're
+      starting from zero. I move your audience into an email list you control, with a qualification
+      system that tells you which subscribers are worth your time.
     </p>
     <Fragment slot="actions">
       <Button size="lg" href="#get-started" class="!h-14 !px-8 !text-base">
@@ -85,7 +85,7 @@ const faqItems = [
       {[
         'LinkedIn newsletter → your Kit list',
         'Qualification system that surfaces ready buyers',
-        'Pre-drafted replies waiting in Gmail each morning',
+        'Done-for-you setup — live in one Zoom call',
       ].map((item) => (
         <li class="flex items-center gap-2 text-sm text-foreground-muted">
           <Icon name="check" size="sm" class="text-brand-500 shrink-0" />
@@ -104,28 +104,29 @@ const faqItems = [
         <div>
           <p class="text-sm font-semibold text-brand-600 uppercase tracking-wider mb-3">The Problem</p>
           <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight text-foreground">
-            LinkedIn shows you their names. It never gives you their emails.
+            LinkedIn shows you their names. It won't hand you their emails.
           </h2>
           <p class="mt-5 text-base leading-relaxed text-foreground-muted">
             You've spent years building a following. Every post, every comment, every connection request
-            — all of it happened inside LinkedIn's walls. And LinkedIn owns the relationship, not you.
+            — all of it happened inside LinkedIn's walls. LinkedIn owns the platform you built it on, not you.
           </p>
           <p class="mt-4 text-base leading-relaxed text-foreground-muted">
-            Your newsletter subscribers? LinkedIn knows who they are. They won't tell you.
-            You can see a name. You can't send an email. You can't export a list.
-            The moment their algorithm shifts, your reach shifts with it.
+            Your newsletter subscribers? You can see their name. You can't export the list, and you can't
+            add them to your own email platform — they have to choose to opt in, every time, because you
+            don't legally own that relationship until they do. Until then, the moment LinkedIn's algorithm
+            shifts, your reach shifts with it.
           </p>
         </div>
         <div class="flex flex-col gap-4">
           <Card variant="outline" padding="lg">
-            <p class="text-xs font-bold uppercase tracking-wide text-foreground-muted mb-1">LinkedIn Newsletter</p>
-            <p class="text-4xl font-extrabold text-foreground">2,500</p>
+            <p class="text-xs font-bold uppercase tracking-wide text-foreground-muted mb-1">Your LinkedIn Newsletter</p>
+            <p class="text-4xl font-extrabold text-foreground">10,000</p>
             <p class="mt-1 text-sm text-foreground-muted">subscribers. Zero emails. Zero ownership.</p>
           </Card>
           <Card variant="default" padding="lg">
             <p class="text-xs font-bold uppercase tracking-wide text-brand-600 mb-1">After AssetBolt</p>
             <p class="text-4xl font-extrabold text-foreground">Yours.</p>
-            <p class="mt-1 text-sm text-foreground-muted">Owned email list. Tagged by company size. Ready for launch day.</p>
+            <p class="mt-1 text-sm text-foreground-muted">Owned email list. Tagged and segmented. Ready whenever you need it.</p>
           </Card>
         </div>
       </div>
@@ -144,7 +145,8 @@ const faqItems = [
         </h2>
         <p class="mt-4 text-base leading-relaxed text-foreground-muted max-w-2xl mx-auto">
           Every day you're on LinkedIn without an owned list, you're one algorithm update away from
-          starting over. And if you have a book launch coming, the clock is already running.
+          starting over. And if you've got something coming — a launch, a campaign, a season — the
+          clock is already running.
         </p>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
@@ -172,20 +174,17 @@ const faqItems = [
 
       <Card variant="outline" padding="lg" class="max-w-2xl mx-auto pas-letter">
         <p>Peter has 70,000 LinkedIn followers. One post last month hit 150,000 impressions.</p>
-        <p>Every morning: hundreds of new connection requests. A newsletter with thousands of subscribers — but LinkedIn owns the email addresses, not him. Leads showing up in his website chat with answers like <em>"busy but happy, would like more clients"</em> — and no way to know which ones were worth his time.</p>
-        <p>He told me exactly what he wanted:</p>
+        <p>Every morning: hundreds of new connection requests. A newsletter with thousands of subscribers — but those email addresses live with LinkedIn, not him. He can't message any of them directly. Leads showing up in his website chat with answers like <em>"busy but happy, would like more clients"</em> — and no way to know which ones were worth his time.</p>
+        <p>He told me exactly what he wanted, eventually:</p>
         <blockquote>"Wake up. Open Gmail. See a few pre-drafted replies to the right people. Review them. Hit send. That's all I want to do."</blockquote>
+        <p>That's the system we're still building toward. Here's what's live today.</p>
 
         <h3>Step 1: Get the LinkedIn subscribers off LinkedIn.</h3>
         <p>Peter had thousands of newsletter subscribers on LinkedIn. LinkedIn knows who they are. He didn't. We scraped the subscriber list from LinkedIn's UI into a CSV, uploaded it to a DM tool, and ran an automated sequence: <em>"You're already subscribed to my newsletter here — I have a more in-depth version via email. Want me to send it?"</em></p>
         <p>When they said yes, he sent the link. They opted in. He owns those emails now. LinkedIn doesn't.</p>
 
-        <h3>Step 2: Stop qualifying leads too early.</h3>
-        <p>The sign-up form asked "what size company are you at?" before anyone had read a single email from Peter. Nobody answered. Nobody booked a call. We moved that question to day 8 of his welcome sequence — after they'd seen enough to trust him. Four clickable options. Each click tagged them in Kit.</p>
-
-        <h3>Step 3: Build the morning inbox.</h3>
-        <p>When someone answers Peter's open question on his website, that answer lands in Kit as a custom field. A webhook fires. Claude reads the subscriber's name, company size, and their answer — and writes a draft reply in his Gmail before he wakes up.</p>
-        <p>He opens Gmail. Reads the draft. Edits one line if he wants to. Hits send.</p>
+        <h3>Step 2: Ask the right question at the right time.</h3>
+        <p>The sign-up form used to ask "what size company are you at?" before anyone had read a single email from Peter. Nobody answered. Nobody booked a call. We moved that question to day 8 of his welcome sequence — after they'd seen enough to trust him. Four clickable options. Each click tags them in Kit, so Peter can see who's actually worth a reply.</p>
 
         <p class="font-bold text-foreground !mt-6">One post last week drove 30–50 email subscribers in 24 hours. The campaign is still running daily.</p>
 
@@ -259,7 +258,7 @@ const faqItems = [
           <h3 class="mt-4 font-display text-2xl font-bold tracking-tight text-foreground">AssetBolt System</h3>
           <div class="mt-4 flex items-baseline gap-2">
             <span class="text-4xl font-extrabold text-foreground">$2,500</span>
-            <span class="text-sm text-foreground-muted">setup + $1,200/mo</span>
+            <span class="text-sm text-foreground-muted">setup + retainer scoped on the call</span>
           </div>
           <p class="mt-3 text-sm text-foreground-muted">Everything in Migration, plus the full subscriber intelligence layer.</p>
           <ul class="mt-6 flex flex-col gap-3">
@@ -267,8 +266,7 @@ const faqItems = [
               'Everything in LinkedIn Migration',
               'Day-8 qualification email with 4-click tagging',
               'RightMessage: right CTA to the right subscriber',
-              'Gmail draft automation for qualified leads',
-              'Subscriber intelligence dashboard',
+              'Every subscriber tagged and segmented in Kit',
             ].map((item) => (
               <li class="flex gap-3 items-start text-sm text-foreground-muted">
                 <Icon name="check-circle" size="sm" class="text-brand-500 mt-0.5 shrink-0" />
